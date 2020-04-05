@@ -1,5 +1,6 @@
-# BasicFront
+# Basic-Frontend
 
+This is the frontend for **Basic**, a chat room with [Angular](https://angular.io) frontend and [Golang](https://golang.org) + [MySQL](https://www.mysql.com/) backend.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
 ## Development server

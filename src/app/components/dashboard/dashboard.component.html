@@ -1,0 +1,127 @@
+<div class="dashboard" fxLayout>
+  <div
+    class="profile"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+    *ngIf="us.userInstance | async as user"
+  >
+    <!-- <button
+      *ngIf="(profilePic$ | async)?.length"
+      mat-raised-button
+      class="send"
+      (click)="deleteProfilePic()"
+    >
+      delete
+    </button> -->
+    <div class="profilePic" fxLayoutAlign="center center">
+      <label
+        for="file"
+        class="upload"
+        fxLayoutAlign="center center"
+        [matTooltip]="
+          (user.profilePic.length ? 'Update' : 'Upload') + ' profile picture'
+        "
+        matTooltipPosition="below"
+      >
+        <mat-icon class="camIco">camera_alt</mat-icon>
+        <input
+          type="file"
+          name="file"
+          id="file"
+          accept="image/*"
+          (change)="handleFileInput($event)"
+        />
+      </label>
+      <img [src]="'http://localhost:4200/static/' + user.profilePic" alt="" />
+    </div>
+    <div class="name">{{ user.name }}</div>
+    <div class="username">Username:&nbsp;{{ user.username }}</div>
+  </div>
+
+  <div class="chat">
+    <div class="chatHistory" #history>
+      <div class="textWrapper" fxLayout="column" fxLayoutGap="2vh">
+        <div
+          *ngFor="let msg of us.chatMsgs | async"
+          class="chatMsg"
+          [dir]="
+            msg.user.username == (us.userInstance | async)?.username &&
+            msg.code == 0
+              ? 'rtl'
+              : 'ltr'
+          "
+        >
+          <div
+            fxLayoutAlign="none end"
+            *ngIf="msg.code == 0"
+            fxLayoutGap="10px"
+            class="chatMsgWrap"
+          >
+            <div
+              class="profilePic"
+              fxLayoutAlign="center center"
+              [matTooltip]="msg.user?.username"
+              [matTooltipPosition]="
+                msg.user.username == (us.userInstance | async)?.username
+                  ? 'right'
+                  : 'left'
+              "
+            >
+              <img
+                [src]="'http://localhost:4200/static/' + msg.user.profilePic"
+                alt="asd"
+              />
+            </div>
+            <div [matTooltip]="getTime(msg.time)" matTooltipPosition="below">
+              <div class="username">{{ msg.user.username }}</div>
+              <div class="text">{{ msg.text }}</div>
+            </div>
+          </div>
+          <div
+            class="centerInfo"
+            fxLayoutAlign="center end"
+            fxLayoutGap="1vw"
+            *ngIf="msg.code != 0"
+          >
+            <div
+              class="profilePic"
+              [matTooltip]="msg.user.username"
+              matTooltipPosition="left"
+            >
+              <img
+                [src]="'http://localhost:4200/static/' + msg.user.profilePic"
+                alt="asd"
+              />
+            </div>
+            <div>
+              {{ msg.user.username }} {{ msg.code == 1 ? "joined" : "left" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="newMessage" fxLayoutAlign="end center" fxLayoutGap="3vw">
+      <mat-form-field class="chatInput">
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          [(ngModel)]="newMessage"
+          placeholder="Enter message"
+          #textarea="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="2"
+          (keypress.enter)="sendMsg()"
+        ></textarea>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        [disabled]="!newMessage.length"
+        class="send"
+        (click)="sendMsg()"
+        color="primary"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>

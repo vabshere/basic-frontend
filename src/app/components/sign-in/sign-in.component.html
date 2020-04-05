@@ -1,0 +1,42 @@
+<div class="signIn" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    class="form"
+    (ngSubmit)="onSubmit()"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="3vh"
+    #signInForm="ngForm"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="user.username"
+        #username="ngModel"
+        name="username"
+        required
+        type="text"
+        placeholder="Username"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="user.password"
+        #password="ngModel"
+        name="password"
+        required
+        type="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      [disabled]="!signInForm.form.valid"
+      color="primary"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>

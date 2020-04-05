@@ -1,0 +1,7 @@
+@import "~@angular/material/theming";
+
+$custom-typography: mat-typography-config(
+  $body-1: mat-typography-level(14px, normal, 400),
+);
+
+@include mat-core($custom-typography);

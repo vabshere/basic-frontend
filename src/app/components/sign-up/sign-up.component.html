@@ -1,0 +1,59 @@
+<div class="signUp">
+  <form class="form" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="newUser.name"
+        #name="ngModel"
+        name="name"
+        required
+        type="text"
+        placeholder="Full Name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="newUser.username"
+        #username="ngModel"
+        name="username"
+        required
+        type="text"
+        placeholder="Unique username"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="newUser.password"
+        #password="ngModel"
+        name="password"
+        required
+        type="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="newUser.confirmPass"
+        #confirmPass="ngModel"
+        name="confirmPass"
+        required
+        type="password"
+        placeholder="Confirm password"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="
+        !signUpForm.form.valid || newUser.password != newUser.confirmPass
+      "
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.navbar {
+  height: 9vh;
+  padding: 0 2vw;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+  height: 80%;
+}
+
+.picture {
+  height: 100%;
+}
+
+img {
+  height: 100%;
+}

@@ -1,0 +1,39 @@
+<div class="navbar" fxLayoutAlign="space-between center">
+  <div class="left" fxLayoutAlign="center center">
+    <div class="picture" fxLayoutAlign="center center">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Peace_sign.svg/1200px-Peace_sign.svg.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="right" fxLayoutGap="1vw">
+    <button
+      *ngIf="!(us.userInstance | async)"
+      mat-raised-button
+      color="primary"
+      routerLink="/signin"
+      class="signIn"
+    >
+      Sign In
+    </button>
+    <button
+      *ngIf="!(us.userInstance | async)"
+      mat-raised-button
+      color="accent"
+      routerLink="/reg"
+      class="signUp"
+    >
+      Sign Up
+    </button>
+    <button
+      *ngIf="us.userInstance | async"
+      mat-raised-button
+      color="warn"
+      (click)="signOut()"
+      class="signOut"
+    >
+      Sign Out
+    </button>
+  </div>
+</div>

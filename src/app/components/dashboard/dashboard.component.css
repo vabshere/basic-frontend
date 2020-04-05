@@ -1,0 +1,137 @@
+#file {
+  display: none;
+}
+
+.dashboard {
+  height: 91vh;
+}
+
+.profile {
+  width: 20vw;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile .profilePic {
+  width: 17vw;
+  height: 17vw;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+
+.upload {
+  position: absolute;
+  top: 15vw;
+  color: blue;
+  width: 100%;
+  height: 2vw;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity linear 0.2s;
+}
+
+.profilePic:hover .upload {
+  opacity: 1;
+}
+
+.upload:hover .camIco {
+  opacity: 1;
+}
+
+.camIco {
+  font-size: 1.8em;
+  color: rgba(0, 0, 0, 1);
+  transition: opacity linear 0.2s;
+  opacity: 0.6;
+}
+
+.profile img {
+  height: unset;
+  width: 100%;
+}
+
+.name {
+  font-size: 1.8em;
+}
+
+.chat {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.chatHistory {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.textWrapper {
+  position: relative;
+  top: 60vh;
+  padding: 2vh 6vw 2vh 7px;
+  width: calc(100% - 6vw - 7px);
+}
+
+.chatMsgWrap {
+  max-width: 37vw;
+}
+
+.chatMsg .profilePic {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.chatMsg img {
+  height: 100%;
+}
+
+.text {
+  font-size: 13px;
+  padding: 15px;
+  background: lightgrey;
+  border-radius: 15px;
+}
+
+.newMessage {
+  padding: 0 8vw;
+  /* height: 20vh; */
+}
+
+.chatInput {
+  width: 40vw;
+}
+
+.send {
+  min-width: 12vw;
+}
+
+.chatHistory::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chatHistory::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+.chatHistory::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.chatHistory::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.chatHistory::-webkit-scrollbar-track:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
